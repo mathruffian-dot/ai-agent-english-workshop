@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 英文教學實戰工作坊（3 小時）</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<style>
+  :root{
+    --accent:#E8643A;      /* 橘紅 主強調 */
+    --accent2:#4FC3F7;     /* 青 次強調 */
+    --success:#81C784;     /* 綠 */
+    --warn:#FFB74D;        /* 琥珀 */
+    --ink:#0d1117;
+  }
+  .reveal{font-family:'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif;}
+  .reveal h1,.reveal h2,.reveal h3{font-weight:800;letter-spacing:-.02em;}
+  .reveal h1{font-size:2.4em;}
+  .reveal h2{font-size:1.55em;color:var(--accent2);}
+  .reveal .accent{color:var(--accent);}
+  .reveal .a2{color:var(--accent2);}
+  .reveal .ok{color:var(--success);}
+  .reveal .warn{color:var(--warn);}
+  .reveal section{text-align:left;}
+  .reveal .center{text-align:center;}
+  /* 漸層底圖（零生圖） */
+  .bg-aurora{
+    background:
+      radial-gradient(60% 80% at 18% 18%, rgba(79,195,247,.28), transparent 60%),
+      radial-gradient(55% 70% at 82% 72%, rgba(232,100,58,.24), transparent 60%),
+      linear-gradient(135deg,#0d1117,#1a1a2e) !important;
+  }
+  .chip{display:inline-block;background:var(--accent2);color:#0d1117;font-weight:800;
+    padding:.15em .8em;border-radius:.5em;font-size:.5em;margin-bottom:.4em;}
+  .grid{display:grid;gap:.7em;margin-top:.5em;}
+  .g2{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr 1fr 1fr;}
+  .card{background:rgba(255,255,255,.06);border:1px solid rgba(79,195,247,.25);
+    border-radius:14px;padding:.7em .9em;font-size:.62em;}
+  .card .ic{font-size:1.8em;display:block;margin-bottom:.1em;}
+  .card .t{font-weight:800;color:var(--accent);font-size:1.05em;}
+  table{font-size:.6em;width:100%;border-collapse:collapse;}
+  th{background:var(--accent);color:#fff;padding:.4em .6em;}
+  td{padding:.4em .6em;border-bottom:1px solid rgba(255,255,255,.12);}
+  .emph{background:rgba(255,183,77,.16);}
+  .lead{font-size:.7em;color:#cfd6df;}
+  .big{font-size:1.15em;font-weight:800;}
+  ul{font-size:.72em;}
+  .small{font-size:.55em;color:#9aa3ad;}
+  .reveal .slides section .fragment.visible{opacity:1;}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- 1 封面 -->
+<section data-background-color="#0d1117" class="bg-aurora center">
+  <div class="chip">2026 教師研習 · 3 小時</div>
+  <h1><span class="a2">AI Agent</span><br>英文教學實戰工作坊</h1>
+  <p class="lead">兒美 / 國中 / 高中英文老師 · 零金鑰 · 一個 Google 帳號</p>
+  <p class="small">講師：三師爸 Sense Bar</p>
+</section>
+
+<!-- 2 時間總覽 -->
+<section data-background-color="#161b22">
+  <span class="chip">議程</span>
+  <h2>三小時、五個階段</h2>
+  <table>
+    <tr><th>階段</th><th>內容</th><th>時間</th></tr>
+    <tr><td>一</td><td>觀念翻轉：會聊天 vs 會做事的 Agent</td><td>25 分</td></tr>
+    <tr><td>二</td><td>兩大載具：Anti-Gravity ＋ OpenCode(NVIDIA)</td><td>35 分</td></tr>
+    <tr><td>三</td><td>英文教學四大實戰</td><td>75 分</td></tr>
+    <tr><td>四</td><td>備課加速 ＋ 批改 ＋ 行政追蹤</td><td>25 分</td></tr>
+    <tr><td>五</td><td>收尾：變成你的日常工作流</td><td>10 分</td></tr>
+  </table>
+</section>
+
+<!-- 3 觀念翻轉 -->
+<section data-background-color="#0d1117" class="bg-aurora">
+  <span class="chip">階段一 · 觀念</span>
+  <h2>為什麼是 Agent，不是 ChatGPT</h2>
+  <div class="grid g2">
+    <div class="card"><span class="t">💬 生成式 AI</span>給你<b>一段話</b>；你要當「複製貼上大師」，把教材手動貼來貼去。</div>
+    <div class="card"><span class="t">🤖 AI Agent</span>幫你產出<b>一份檔案</b>；直接讀你電腦裡的課本、單字表，自己讀、做、存檔。</div>
+  </div>
+  <p class="lead" style="margin-top:.6em;">口訣：它會迭代嗎？會採取行動嗎？會自己決定下一步嗎？</p>
+</section>
+
+<!-- 4 兩大載具 -->
+<section data-background-color="#161b22">
+  <span class="chip">階段二 · 載具</span>
+  <h2>兩款免費載具</h2>
+  <table>
+    <tr><th></th><th>Anti-Gravity</th><th>OpenCode</th></tr>
+    <tr><td>開發商</td><td>Google</td><td>開源（sst）</td></tr>
+    <tr><td>費用</td><td>免費（Pro 額度更多）</td><td>免費（接 NVIDIA 雲端模型）</td></tr>
+    <tr><td>強項</td><td>Google 生態原生</td><td>不綁品牌、模型可換</td></tr>
+  </table>
+  <p class="lead" style="margin-top:.5em;">OpenCode 接模型：<b>build.nvidia.com</b> 註冊 → 拿 <code>nvapi-xxx</code> → <code>/connect</code> 選 NVIDIA → DeepSeek V4 Flash</p>
+</section>
+
+<!-- 5 免費 vs 付費 -->
+<section data-background-color="#161b22">
+  <span class="chip">階段二 · 模型方案</span>
+  <h2>免費 vs 付費，怎麼選</h2>
+  <table>
+    <tr><th>面向</th><th>NVIDIA 免費（研習用）</th><th class="emph">OpenCode Go（未來選項）</th></tr>
+    <tr><td>費用</td><td>完全免費</td><td class="emph">首月 $5，之後 $10/月</td></tr>
+    <tr><td>資料隱私</td><td>會被記錄、用於改進</td><td class="emph">零留存 zero-retention</td></tr>
+    <tr><td>用途限制</td><td>限開發測試</td><td class="emph">可正式使用、無限制</td></tr>
+    <tr><td>可用性</td><td>有速率限制</td><td class="emph">穩定、三地部署</td></tr>
+  </table>
+</section>
+
+<!-- 6 資安三提醒 -->
+<section data-background-color="#0d1117" class="bg-aurora">
+  <span class="chip warn">務必提醒</span>
+  <h2 class="warn">資訊安全三件事</h2>
+  <ul>
+    <li>免費 / 開發者方案的<b>對話資料可能被拿去訓練</b>。</li>
+    <li>會用到<b>中國大陸模型</b>（DeepSeek/Qwen/GLM），但<b>伺服器託管在美國</b>（NVIDIA 雲端）。</li>
+    <li><b>學生與個人敏感資料切勿上傳</b> → 先去識別化，或改走 Anti-Gravity(Pro) 等不訓練的管道。</li>
+  </ul>
+</section>
+
+<!-- 7 四大實戰 -->
+<section data-background-color="#161b22">
+  <span class="chip">階段三 · 四大實戰</span>
+  <h2>英文教學四大場景</h2>
+  <div class="grid g2">
+    <div class="card"><span class="ic">🧸</span><span class="t">兒美</span>單字表 → 互動遊戲 + GAS 收成績</div>
+    <div class="card"><span class="ic">📖</span><span class="t">國中</span>課文 → 克漏字/閱讀測驗 → 自動批改</div>
+    <div class="card"><span class="ic">✍️</span><span class="t">高中</span>作文草稿 → 依 rubric 即時回饋</div>
+    <div class="card"><span class="ic">🏆</span><span class="t">會考</span>考古題 → 診斷考點 → 變式練習</div>
+  </div>
+  <p class="lead center" style="margin-top:.5em;">部署 / 收資料：<b>純 GAS Web App</b>（只要 Google 帳號）</p>
+</section>
+
+<!-- 8 備課加速 -->
+<section data-background-color="#0d1117" class="bg-aurora">
+  <span class="chip">階段四 · 加速器</span>
+  <h2>備課 · 批改 · 行政</h2>
+  <ul>
+    <li><b>備課加速</b>：長文章 → 三難度教材 + 單字表 + 分級練習。</li>
+    <li><b>批改回饋</b>：學生作業 → Agent 給初步評語 + 建議，老師把關。</li>
+    <li><b>行政追蹤</b>：GAS 試算表為資料源，每週彙整誰落後、自動寫提醒。</li>
+    <li><b>一句話生簡報</b>：教學影片 / 互動 HTML / SOIL .pptx 三種格式。</li>
+  </ul>
+</section>
+
+<!-- 9 四個 repo -->
+<section data-background-color="#161b22">
+  <span class="chip">工具箱</span>
+  <h2>四個專屬懶人包（全零金鑰）</h2>
+  <div class="grid g2">
+    <div class="card"><span class="t">clasp-gas-guide</span>GAS Web App：出題/收答/Gmail/行事曆</div>
+    <div class="card"><span class="t">video-specs-lite</span>教學影片 / 動畫簡報</div>
+    <div class="card"><span class="t">html-slide-builder-lite</span>Reveal.js 互動簡報</div>
+    <div class="card"><span class="t">soil-english-deck</span>SOIL 英文 .pptx 簡報</div>
+  </div>
+  <p class="small center" style="margin-top:.5em;">clone 後丟給 Agent，一句話就動工 · github.com/mathruffian-dot</p>
+</section>
+
+<!-- 10 收尾 -->
+<section data-background-color="#0d1117" class="bg-aurora center">
+  <h1 class="big">工具會換，<br><span class="accent">駕馭 AI 的能力是你的。</span></h1>
+  <p class="lead" style="margin-top:.6em;">一份 AGENTS.md = 你的教學理念，寫一次，所有工具都聽你的。</p>
+  <p class="small">AI Agent 英文教學實戰工作坊 · 三師爸 Sense Bar</p>
+</section>
+
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({ hash:true, slideNumber:'c/t', transition:'slide', controls:true, progress:true, center:false });
+</script>
+</body>
+</html>
