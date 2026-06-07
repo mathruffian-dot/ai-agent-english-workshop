@@ -50,6 +50,11 @@
   ul{font-size:.72em;}
   .small{font-size:.55em;color:#9aa3ad;}
   .reveal .slides section .fragment.visible{opacity:1;}
+  .prompt{background:#0b0f14;border:1px solid rgba(79,195,247,.3);border-radius:10px;
+    padding:.5em .7em;font-size:.4em;line-height:1.55;color:#d6e2ee;white-space:pre-wrap;
+    font-family:'Cascadia Code','Consolas',monospace;text-align:left;margin:.35em 0;}
+  .ptag{color:var(--accent);font-weight:800;font-size:.62em;display:block;margin-top:.3em;}
+  .hint-down{color:#9aa3ad;font-size:.5em;margin-top:.4em;}
 </style>
 </head>
 <body>
@@ -161,6 +166,77 @@
     <div class="card"><span class="t">soil-english-deck</span>SOIL 英文 .pptx 簡報</div>
   </div>
   <p class="small center" style="margin-top:.5em;">clone 後丟給 Agent，一句話就動工 · github.com/mathruffian-dot</p>
+</section>
+
+<!-- 9.5 提示詞範例（垂直章節，可向下展開） -->
+<section>
+  <section data-background-color="#0d1117" class="bg-aurora center">
+    <span class="chip">複製即用</span>
+    <h2>每個應用的範例提示詞</h2>
+    <p class="lead">把提示詞貼給 Agent，替換〈〉裡的內容即可。</p>
+    <p class="hint-down">↓ 向下鍵看各應用提示詞</p>
+  </section>
+
+  <section data-background-color="#161b22">
+    <span class="chip">兒美</span>
+    <h2>單字表 → 互動遊戲</h2>
+    <div class="prompt">這是我這課的單字表（附檔）。請做一個英文單字配對小遊戲網頁：
+左邊英文、右邊中文，點擊配對，答對發光、答錯抖動，最後顯示得分。
+做成 GAS Web App，部署後給我短網址 + QR Code。</div>
+  </section>
+
+  <section data-background-color="#161b22">
+    <span class="chip">國中</span>
+    <h2>課文 → 出題 → 批改</h2>
+    <span class="ptag">① 出題</span>
+    <div class="prompt">這是課本第〈5〉課課文（附檔）。出克漏字 10 題 + 閱讀測驗 5 題（標 Bloom），
+附答案卷與詳解。先給我草稿，我確認後再做成網頁。</div>
+    <span class="ptag">② 上線 + 批改</span>
+    <div class="prompt">把測驗做成 GAS Web App 收作答（學生只填座號）。
+之後讀那份試算表，自動批改並針對錯最多的文法點各寫一句個別化建議。</div>
+  </section>
+
+  <section data-background-color="#161b22">
+    <span class="chip">高中</span>
+    <h2>作文 → 即時回饋</h2>
+    <span class="ptag">① 設 rubric（寫進 AGENTS.md）</span>
+    <div class="prompt">把評分標準記進 AGENTS.md：內容/組織/文法/用字各 5 分。
+回饋＝逐項給分 + 各一句建議，不要整篇代寫。</div>
+    <span class="ptag">② 批改一篇</span>
+    <div class="prompt">這是學生作文草稿（貼下）。依 rubric 逐項評分回饋，
+標出 3 個最該優先改的地方，示範改其中一句，但不代寫整篇。</div>
+  </section>
+
+  <section data-background-color="#161b22">
+    <span class="chip">會考</span>
+    <h2>考古題 → 整理教學</h2>
+    <div class="prompt">這是近〈5〉年會考英文考古題（附檔）。請：
+(1) 依考點分類做考點地圖 (2) 找出高頻易錯題型
+(3) 反推「學生該補的觀念」，不要只是再給一份題目。
+接著針對高頻考點出 8 題變式練習（由淺到深，附解析）。</div>
+  </section>
+
+  <section data-background-color="#0d1117" class="bg-aurora">
+    <span class="chip">備課 / 批改 / 行政</span>
+    <h2>加速器三件套</h2>
+    <span class="ptag">備課加速</span>
+    <div class="prompt">這篇英文文章（附檔）依 Bloom 三層次產出三種難度教材，
+各附重點、單字表（單字｜詞性｜KK音標｜例句）、5 題練習與答案。</div>
+    <span class="ptag">批改減壓</span>
+    <div class="prompt">全班造句作業（附檔）每人先做初步評語 + 建議，標出共同錯誤 Top 3。</div>
+    <span class="ptag">行政追蹤</span>
+    <div class="prompt">以 GAS 試算表為源，每週彙整沒交 / 低於〈60〉分名單，各寫一句提醒語。</div>
+  </section>
+
+  <section data-background-color="#161b22">
+    <span class="chip">一句話生簡報</span>
+    <h2>三種格式，clone 即用</h2>
+    <div class="prompt">git clone soil-english-deck 後照 SKILL，用 SOIL 六引擎做「現在完成式」.pptx，
+對象國中、一節課，例句用結構卡分色、用對照表。每顆引擎跑完先讓我確認。</div>
+    <div class="prompt">git clone claude-html-slide-builder-lite 後，把「現在完成式」做成 Reveal.js 互動簡報。
+git clone claude-video-specs-lite 後，做一支 3 分鐘「easy vs easily」教學動畫。</div>
+    <p class="small">完整提示詞清單見專案 提示詞範例.md</p>
+  </section>
 </section>
 
 <!-- 10 收尾 -->
