@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研習講義 — AI Agent 英文教學實戰工作坊</title>
+<style>
+  :root{--accent:#E8643A;--accent2:#0E7C7B;--ink:#1f2328;--bg:#faf7ee;--card:#fff;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;}
+  header{position:sticky;top:0;background:#0d1117;color:#fff;padding:14px 20px;z-index:10;
+    display:flex;gap:14px;align-items:center;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.2);}
+  header b{font-size:1.05em;}
+  header a{color:#4fc3f7;text-decoration:none;font-weight:700;font-size:.9em;
+    border:1px solid rgba(79,195,247,.5);padding:4px 12px;border-radius:20px;}
+  header a:hover{background:rgba(79,195,247,.15);}
+  .wrap{max-width:880px;margin:0 auto;padding:24px 20px 80px;}
+  .doc{background:var(--card);border-radius:14px;padding:28px 32px;margin-bottom:34px;
+    box-shadow:0 2px 16px rgba(0,0,0,.06);}
+  h1{color:var(--accent);border-bottom:3px solid var(--accent);padding-bottom:.2em;}
+  h2{color:var(--accent2);margin-top:1.4em;border-left:5px solid var(--accent2);padding-left:.5em;}
+  h3{color:#333;}
+  table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.92em;}
+  th{background:var(--accent2);color:#fff;padding:8px 10px;text-align:left;}
+  td{border-bottom:1px solid #e3ded0;padding:8px 10px;vertical-align:top;}
+  tr:nth-child(even) td{background:#faf8f1;}
+  code{background:#eee7d6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  pre{position:relative;background:#0b0f14;color:#d6e2ee;border-radius:10px;
+    padding:16px 16px 16px;overflow:auto;font-size:.92em;line-height:1.6;}
+  pre code{background:none;color:inherit;padding:0;white-space:pre-wrap;}
+  .copybtn{position:absolute;top:8px;right:8px;background:var(--accent);color:#fff;border:none;
+    border-radius:6px;padding:4px 12px;font-size:.8em;font-weight:700;cursor:pointer;font-family:inherit;}
+  .copybtn:hover{filter:brightness(1.1);} .copybtn.done{background:var(--accent2);}
+  a{color:var(--accent2);}
+  .tip{background:#fff4ec;border-left:5px solid var(--accent);padding:10px 14px;border-radius:8px;margin:14px 0;font-size:.92em;}
+  footer{text-align:center;color:#998;font-size:.85em;padding:30px;}
+</style>
+</head>
+<body>
+<header>
+  <b>📚 研習講義</b>
+  <a href="#outline">課程大綱</a>
+  <a href="#prompts">提示詞範例</a>
+  <a href="index.html">▶ 簡報</a>
+</header>
+<div class="wrap">
+  <div class="tip">💡 下方「提示詞」區塊每段都有 <b>複製</b> 鈕，點一下即可貼到你的 AI Agent（Anti-Gravity / OpenCode）。手機也可長按複製。</div>
+  <div id="outline" class="doc"><p>載入課程大綱中…</p></div>
+  <div id="prompts" class="doc"><p>載入提示詞範例中…</p></div>
+  <footer>AI Agent 英文教學實戰工作坊 · 三師爸 Sense Bar<br>本頁內容會隨講師更新自動同步</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+<script>
+async function load(file, elId){
+  try{
+    const res = await fetch(encodeURI(file), {cache:"no-store"});
+    if(!res.ok) throw new Error(res.status);
+    const md = await res.text();
+    document.getElementById(elId).innerHTML = marked.parse(md);
+  }catch(e){
+    document.getElementById(elId).innerHTML = "<p>載入失敗（"+e.message+"）。可改看原始檔：<a href='"+encodeURI(file)+"'>"+file+"</a></p>";
+  }
+}
+function addCopyButtons(){
+  document.querySelectorAll("pre").forEach(pre=>{
+    if(pre.querySelector(".copybtn")) return;
+    const btn=document.createElement("button");
+    btn.className="copybtn"; btn.textContent="複製";
+    btn.onclick=()=>{
+      const t=pre.querySelector("code")?pre.querySelector("code").innerText:pre.innerText;
+      navigator.clipboard.writeText(t).then(()=>{btn.textContent="已複製 ✓";btn.classList.add("done");
+        setTimeout(()=>{btn.textContent="複製";btn.classList.remove("done");},1500);});
+    };
+    pre.appendChild(btn);
+  });
+}
+(async()=>{
+  await load("課程大綱.md","outline");
+  await load("提示詞範例.md","prompts");
+  addCopyButtons();
+})();
+</script>
+</body>
+</html>
